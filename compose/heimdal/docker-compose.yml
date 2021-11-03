@@ -10,13 +10,16 @@ services:
     volumes:
       - ./config:/config
     restart: unless-stopped
+    ports:
+     - "80:80"
+     - "443:443"
     networks:
       - traefik
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`${URL}`)"
-      - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+      - "traefik.http.routers.heimdall.rule=Host(`${URL}`)"
+      - "traefik.http.routers.heimdall.entrypoints=websecure"
+      - "traefik.http.routers.heimdall.tls.certresolver=myresolver"
 networks:
   traefik:
     external:
