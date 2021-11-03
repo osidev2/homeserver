@@ -14,12 +14,15 @@ services:
       #- "--entrypoints.web.address=:80"
       - "--certificatesresolvers.myresolver.acme.email=${EMAIL}"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "--metrics"
+      - "--metrics.prometheus.buckets=0.1,0.3,1.2,5.0"
     ports:
       - "80:80"
       - "443:443"
       - "8080:8080"
     networks:
       - traefik  
+      - monitor
     volumes:
       - "./letsencrypt:/letsencrypt"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
@@ -28,5 +31,9 @@ networks:
   traefik:
     external:
       name: traefik
+  monitor:
+    external:
+      name: monitor
+  
   default:
     driver: bridge
