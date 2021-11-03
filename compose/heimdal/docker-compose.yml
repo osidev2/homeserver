@@ -10,8 +10,6 @@ services:
     volumes:
       - ./config:/config
     restart: unless-stopped
-    ports:
-     - "8081:80"
     networks:
       - traefik
     labels:
