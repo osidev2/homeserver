@@ -4,6 +4,8 @@ services:
   whoami:
     image: "traefik/whoami"
     container_name: "whoami"
+    networks:
+      - traefik
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`bestel.ositech.nl`)"
@@ -12,4 +14,3 @@ networks:
   traefik:
     external:
       name: traefik
-      
