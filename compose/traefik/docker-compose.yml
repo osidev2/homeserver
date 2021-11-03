@@ -10,7 +10,7 @@ services:
       - --providers.docker
       - --log.level=DEBUG
       - --certificatesresolvers.leresolver.acme.httpchallenge=true
-      - --certificatesresolvers.leresolver.acme.email=your-email #Set your email address here, is for the generation of SSL certificates with Let's Encrypt. 
+      - --certificatesresolvers.leresolver.acme.email=${EMAIL} #Set your email address here, is for the generation of SSL certificates with Let's Encrypt. 
       - --certificatesresolvers.leresolver.acme.storage=./acme.json
       - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web
     ports:
