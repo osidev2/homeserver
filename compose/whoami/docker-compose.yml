@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  whoami:
+    image: "traefik/whoami"
+    container_name: "whoami"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`bestel.ositech.nl`)"
+      - "traefik.http.routers.whoami.entrypoints=web"
+networks:
+  traefik:
+    external:
+      name: traefik
+      
