@@ -32,3 +32,10 @@ services:
 
 volumes:
   portainer_data:
+
+networks:
+  traefik:
+    external:
+      name: traefik
+  default:
+    driver: bridge
