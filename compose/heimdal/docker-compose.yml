@@ -11,7 +11,7 @@ services:
       - ./config:/config
     restart: unless-stopped
     ports:
-     - "80:80"
+     - "8081:80"
     networks:
       - traefik
     labels:
