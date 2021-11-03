@@ -34,6 +34,6 @@ volumes:
   portainer_data:
 
 networks: 
-  default:
+  traefik:
     external: true
     name: traefik  
