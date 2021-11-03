@@ -5,6 +5,8 @@ services:
     image: prom/prometheus:v2.30.3
     ports:
       - 9090:9090
+    networks:
+      - monitor  
     volumes:
       - ./config:/etc/prometheus
       - prometheus-data:/prometheus
@@ -13,3 +15,8 @@ services:
 
 volumes:
   prometheus-data:
+
+networks:
+  monitor:
+    external:
+      name: monitor

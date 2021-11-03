@@ -5,6 +5,8 @@ services:
     image: grafana/grafana:7.5.7
     ports:
       - 3000:3000
+    networks:
+      - monitor  
     restart: unless-stopped
     volumes:
       - ./provisioning/datasources:/etc/grafana/provisioning/datasources
@@ -12,3 +14,8 @@ services:
 
 volumes:
   grafana-data:
+
+networks:
+  monitor:
+    external:
+      name: monitor
