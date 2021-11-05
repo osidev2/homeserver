@@ -12,8 +12,7 @@ services:
       - 'traefik.enable=true'
       - 'traefik.http.routers.authelia.rule=Host(`${URL}`)'
       - 'traefik.http.routers.authelia.entrypoints=websecure'
-      - 'traefik.http.routers.authelia.tls=true'
-      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+      - 'traefik.http.routers.whoami.tls.certresolver=myresolver'
       - 'traefik.http.middlewares.authelia.forwardauth.address=http://authelia:9091/api/verify?rd=https://${URL}'  # yamllint disable-line rule:line-length
       - 'traefik.http.middlewares.authelia.forwardauth.trustForwardHeader=true'
       - 'traefik.http.middlewares.authelia.forwardauth.authResponseHeaders=Remote-User,Remote-Groups,Remote-Name,Remote-Email'  # yamllint disable-line rule:line-length
