@@ -38,7 +38,7 @@ services:
     environment:
       - TZ=Europe/Amsterdam
 
-  networks:
+networks:
   traefik:
     external:
       name: traefik
