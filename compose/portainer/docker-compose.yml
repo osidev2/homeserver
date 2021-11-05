@@ -21,7 +21,7 @@ services:
       - "traefik.http.routers.portainer.tls.certresolver=myresolver"
       - "traefik.http.services.portainer.loadbalancer.server.port=9000"
       - "traefik.http.routers.portainer.service=portainer"
-      - 'traefik.http.routers.secure.middlewares=authelia@docker'
+      - 'traefik.http.routers.portainer.middlewares=authelia@docker'
 
 volumes:
   portainer_data:

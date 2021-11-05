@@ -17,7 +17,7 @@ services:
       - "traefik.http.routers.heimdall.rule=Host(`${URL}`)"
       - "traefik.http.routers.heimdall.entrypoints=websecure"
       - "traefik.http.routers.heimdall.tls.certresolver=myresolver"
-      - 'traefik.http.routers.secure.middlewares=authelia@docker'
+      - 'traefik.http.routers.heimdall.middlewares=authelia@docker'
 networks:
   traefik:
     external:
