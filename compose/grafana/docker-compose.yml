@@ -7,6 +7,7 @@ services:
       - 3000:3000
     networks:
       - monitor  
+      - loki
     restart: unless-stopped
     volumes:
       - ./provisioning/datasources:/etc/grafana/provisioning/datasources
@@ -19,3 +20,6 @@ networks:
   monitor:
     external:
       name: monitor
+  loki:
+    external:
+      name: loki    
